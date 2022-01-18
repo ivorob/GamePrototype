@@ -55,6 +55,11 @@ jobs:
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake --build . --config $BUILD_TYPE
 
+    - name: Deployment
+      working-directory: ${{github.workspace}}/build
+      shell: bash
+      run: cmake --build . --target package
+
     - name: Tests
       working-directory: ${{github.workspace}}/build
       shell: bash
@@ -75,7 +80,6 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: smartftpd
+        name: new-game ${{ matrix.os }}
         path: |
-          ${{github.workspace}}/build/new-game
-          ${{github.workspace}}/build/$BUILD_TYPE/new-game.exe
+          ${{github.workspace}}/build/new-game.zip
