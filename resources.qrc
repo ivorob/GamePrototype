@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/MainWindow.qml</file>
+        <file>qml/GameBoard.qml</file>
+        <file>qml/GameField.qml</file>
     </qresource>
 </RCC>
